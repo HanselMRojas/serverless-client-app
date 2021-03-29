@@ -1,23 +1,21 @@
 <template>
   <div class="web-inner">
-    <header class="my-4">
-      <h2>Imágenes cargadas</h2>
-    </header>
 
-    <section>
+    <section v-if="!loader">
+      <header class="my-4" >
+        <h2>Imágenes cargadas</h2>
+      </header>
+
       <v-row>
-        <v-col
-            v-for="n in 9"
-            :key="n"
-            class="d-flex child-flex"
-            cols="3"
-          >
+        <v-col v-for="image in imageList"
+          :key="image.id"
+          class="d-flex child-flex"
+          cols="3">
             <v-img
-              :src="`https://picsum.photos/500/300?image=${n * 5 + 10}`"
-              :lazy-src="`https://picsum.photos/10/6?image=${n * 5 + 10}`"
+              :src="image.url"
+              :lazy-src="image.url"
               aspect-ratio="1"
-              class="grey lighten-2"
-            >
+              class="grey lighten-2">
               <template v-slot:placeholder>
                 <v-row
                   class="fill-height ma-0"
@@ -31,9 +29,24 @@
                 </v-row>
               </template>
             </v-img>
-          </v-col>
+        </v-col>
       </v-row>
     </section>
+
+    <v-layout v-else
+      class="progress-fill"
+      column
+      align-center
+      justify-center
+      fill-height>
+      <v-progress-circular
+          indeterminate
+          :size="150"
+          :width="10"
+          color="primary"
+        ></v-progress-circular>
+        <h2 class="my-4">Cargado listado de imágenes...</h2>
+    </v-layout>
   </div>
 </template>
 

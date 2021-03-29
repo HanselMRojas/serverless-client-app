@@ -17,6 +17,7 @@ export type ImageActionContext = ActionContext<ImageState, RootState>
  */
 export async function listRemoteImages ({ commit }: ImageActionContext): Promise<any> {
   try {
+    commit('SET_LOADER_STATE', true)
     const { data } = await Http.send({
       url: '/images',
       method: 'GET'
@@ -25,6 +26,8 @@ export async function listRemoteImages ({ commit }: ImageActionContext): Promise
     commit('SET_IMAGE_LIST', data.payload)
   } catch (error) {
     console.log(error)
+  } finally {
+    commit('SET_LOADER_STATE', false)
   }
 }
 

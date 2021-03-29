@@ -10,6 +10,7 @@ export interface ImageState {
   list: Image[];
   current: Image;
   error: Error | null;
+  loader: boolean;
   modal: {
     visible: boolean;
     editable: boolean;

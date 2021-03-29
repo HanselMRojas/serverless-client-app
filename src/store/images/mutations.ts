@@ -28,6 +28,9 @@ const mutations: ImagesMutationTree = {
   SET_MODAL_STATE_DEFAULT (state: ImageState) {
     state.modal = { ...IMAGE_MODAL }
     state.current = { ...IMAGE }
+  },
+  SET_LOADER_STATE (state: ImageState, payload: boolean) {
+    state.loader = payload
   }
 }
 

@@ -1,8 +1,6 @@
 /* eslint-disable @typescript-eslint/ban-types */
 import { Component, Vue } from 'vue-property-decorator'
-import { State, Action } from 'vuex-class'
-
-import { Image } from '@/store/images/types'
+import { Action } from 'vuex-class'
 
 import UiImage from '@/components/UiImage/UiImage.vue'
 
@@ -12,15 +10,11 @@ import UiImage from '@/components/UiImage/UiImage.vue'
   }
 })
 export default class Home extends Vue {
-  // Vuex State
-  @State('list', { namespace: 'images' }) imageList!: Image[]
-  @State('loader', { namespace: 'images' }) loader!: boolean
-
   // Vuex Actions
   @Action('listRemoteImages', { namespace: 'images' }) listRemoteImages!: Function
 
-  // Vue lifecycle
-  beforeMount (): void {
+  // Component Methods
+  refreshImages (): void {
     this.listRemoteImages()
   }
 }

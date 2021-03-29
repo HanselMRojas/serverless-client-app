@@ -19,6 +19,7 @@ const state: ImageState = {
     ...IMAGE
   },
   error: null,
+  loader: false,
   modal: {
     ...IMAGE_MODAL
   }
