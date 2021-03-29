@@ -4,11 +4,13 @@ import { State, Action } from 'vuex-class'
 
 import { Image } from '@/store/images/types'
 
+import UiModalImage from '@/components/UiModalImage/UiModalImage.vue'
 import UiImage from '@/components/UiImage/UiImage.vue'
 
 @Component({
   components: {
-    UiImage
+    UiImage,
+    UiModalImage
   }
 })
 export default class Home extends Vue {
@@ -17,10 +19,21 @@ export default class Home extends Vue {
   @State('loader', { namespace: 'images' }) loader!: boolean
 
   // Vuex Actions
+  // Vuex Actions
+  @Action('changeModalState', { namespace: 'images' }) changeModalState!: Function
   @Action('listRemoteImages', { namespace: 'images' }) listRemoteImages!: Function
 
   // Vue lifecycle
   beforeMount (): void {
+    this.onRefreshImages()
+  }
+
+  // Component Methods
+  onRefreshImages (): void {
     this.listRemoteImages()
+  }
+
+  onClickNewImage (): void {
+    this.changeModalState({ visible: true, isNew: true })
   }
 }

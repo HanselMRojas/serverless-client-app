@@ -9,11 +9,9 @@ export type ImageActionContext = ActionContext<ImageState, RootState>
 
 /**
  * ListRemoteImages
- * This function sync the current account from backend
- * again.
+ * Esta funcion sincroniza el backend y el listado de imágenes.
  *
  * @param context Account Action Context
- * @param payload The new password and Remember Token
  */
 export async function listRemoteImages ({ commit }: ImageActionContext): Promise<any> {
   try {
@@ -37,8 +35,4 @@ export function changeModalState ({ commit }: ImageActionContext, payload: boole
 
 export function setModalDefaultState ({ commit }: ImageActionContext): void {
   commit('SET_MODAL_STATE_DEFAULT')
-}
-
-export function setAdminUserState ({ commit }: ImageActionContext, payload: Account): void {
-  commit('SET_CURRENT_USER', payload)
 }

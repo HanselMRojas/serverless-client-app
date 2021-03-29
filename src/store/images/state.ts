@@ -10,7 +10,7 @@ export const IMAGE: Image = {
 
 export const IMAGE_MODAL = {
   visible: false,
-  editable: false
+  isNew: false
 }
 
 const state: ImageState = {

@@ -6,13 +6,15 @@ export interface Image {
   etag: string | null;
 }
 
+export interface ImageModal {
+  visible: boolean;
+  isNew: boolean;
+}
+
 export interface ImageState {
   list: Image[];
   current: Image;
   error: Error | null;
   loader: boolean;
-  modal: {
-    visible: boolean;
-    editable: boolean;
-  }
+  modal: ImageModal;
 }

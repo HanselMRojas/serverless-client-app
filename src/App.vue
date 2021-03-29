@@ -1,7 +1,5 @@
 <template>
   <v-app>
-    <ui-navbar />
-
     <v-main>
       <router-view />
     </v-main>
