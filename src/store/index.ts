@@ -1,15 +1,21 @@
 import Vue from 'vue'
-import Vuex from 'vuex'
+import Vuex, { StoreOptions } from 'vuex'
+import { RootState } from './types'
+
+// Modules
+import images from './images'
 
 Vue.use(Vuex)
 
-export default new Vuex.Store({
+const store: StoreOptions<RootState> = {
   state: {
+    appName: 'PIRPOS',
+    version: '1.0.0'
   },
-  mutations: {
-  },
-  actions: {
-  },
+  getters: {},
   modules: {
+    images
   }
-})
+}
+
+export default new Vuex.Store<RootState>(store)
