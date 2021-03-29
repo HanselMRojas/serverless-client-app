@@ -5,7 +5,7 @@ import {
   ImageState
 } from './types'
 
-import {
+import IMAGE_STATE, {
   IMAGE,
   IMAGE_MODAL
 } from './state'
@@ -15,6 +15,10 @@ type ImagesMutationTree = MutationTree<ImageState>
 const mutations: ImagesMutationTree = {
   SET_IMAGE_LIST (state: ImageState, payload: Image[]) {
     state.list = payload
+  },
+  CONCAT_IMAGE_LIST (state: ImageState, payload: Image | Image[]) {
+    state.list = Array.from(state.list).concat(payload)
+    state.uploadSucess = true
   },
   CHANGE_MODAL_STATE (state: ImageState, payload = {}) {
     state.modal = {
@@ -28,9 +32,14 @@ const mutations: ImagesMutationTree = {
   SET_MODAL_STATE_DEFAULT (state: ImageState) {
     state.modal = { ...IMAGE_MODAL }
     state.current = { ...IMAGE }
+    state.uploadSucess = false
   },
   SET_LOADER_STATE (state: ImageState, payload: boolean) {
     state.loader = payload
+  },
+  SET_DEFAULT_STATE (state: ImageState) {
+    state.current = { ...IMAGE }
+    state.uploadSucess = false
   }
 }
 

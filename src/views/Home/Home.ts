@@ -21,7 +21,7 @@ export default class Home extends Vue {
   // Vuex Actions
   // Vuex Actions
   @Action('changeModalState', { namespace: 'images' }) changeModalState!: Function
-  @Action('listRemoteImages', { namespace: 'images' }) listRemoteImages!: Function
+  @Action('listImages', { namespace: 'images' }) listImages!: Function
 
   // Vue lifecycle
   beforeMount (): void {
@@ -30,7 +30,7 @@ export default class Home extends Vue {
 
   // Component Methods
   onRefreshImages (): void {
-    this.listRemoteImages()
+    this.listImages()
   }
 
   onClickNewImage (): void {

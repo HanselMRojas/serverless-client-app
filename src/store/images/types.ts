@@ -16,5 +16,6 @@ export interface ImageState {
   current: Image;
   error: Error | null;
   loader: boolean;
+  uploadSucess: boolean;
   modal: ImageModal;
 }

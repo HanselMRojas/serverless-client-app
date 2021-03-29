@@ -13,7 +13,10 @@
                   content="Image service"
                   color="error"
                   offset-y="30">
-                  <v-img width="100" src="../../assets/logos/logo.png" alt="PirPOS logo" />
+                  <v-img
+                    width="100"
+                    src="../../assets/logos/logo.png"
+                    alt="PirPOS logo" />
                 </v-badge>
               </v-list-item-title>
             </v-list-item-content>
@@ -70,7 +73,7 @@
           fill-height>
           <v-progress-circular
             indeterminate
-            :size="150"
+            :size="130"
             :width="10"
             color="primary">
           </v-progress-circular>

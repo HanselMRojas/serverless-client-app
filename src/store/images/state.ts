@@ -20,6 +20,7 @@ const state: ImageState = {
   },
   error: null,
   loader: false,
+  uploadSucess: false,
   modal: {
     ...IMAGE_MODAL
   }
